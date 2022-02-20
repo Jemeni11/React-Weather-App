@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import SearchIcon from '@mui/icons-material/Search';
 
+const DUMMYDATA = {"coord":{"lon":-0.1257,"lat":51.5085},"weather":[{"id":800,"main":"Clear","description":"clear sky","icon":"13n"}],"base":"stations","main":{"temp":283.06,"feels_like":279.08,"temp_min":281.65,"temp_max":284.58,"pressure":1011,"humidity":58},"visibility":10000,"wind":{"speed":10.8,"deg":270,"gust":16.98},"clouds":{"all":7},"dt":1645094641,"sys":{"type":2,"id":2019646,"country":"GB","sunrise":1645081862,"sunset":1645118298},"timezone":0,"id":2643743,"name":"London","cod":200}
+
 export default function Header({setfetchedWeatherData}) {
     const [input, setInput] = useState('')
     const getInput = () => input
@@ -9,7 +11,8 @@ export default function Header({setfetchedWeatherData}) {
     const headerStyle = {
         margin: 'auto',
         padding: 0,
-        paddingTop: '10px'
+        paddingTop: '10px',
+        height: '17vh',
     }    
 
     const Title = styled.h2`
@@ -20,7 +23,6 @@ export default function Header({setfetchedWeatherData}) {
 
     const SearchContainer = styled.div`
         border: 0.5px solid lightgray;
-        /* height: 15vh; */
         height: 25px;
         width: 70vw;
         padding: 0.15rem;
@@ -56,7 +58,8 @@ export default function Header({setfetchedWeatherData}) {
             <SearchContainer>
                 <Input value={input} onInput={e => setInput(e.target.value)}/>
                 {/* <Input onInput={e => setter(e.target.value)}/> */}
-                <SearchButton onClick={() => weatherFetch(getInput())}>
+                {/* <SearchButton onClick={() => weatherFetch(getInput())}> */}
+                <SearchButton onClick={() => setfetchedWeatherData(DUMMYDATA)}>
                     <SearchIcon />
                 </SearchButton>
             </SearchContainer>
