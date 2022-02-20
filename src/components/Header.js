@@ -39,10 +39,10 @@ export default function Header({setfetchedWeatherData}) {
     `
 
     const weatherFetch = input => {
-        const api_key = '77854068949f3f3b8a9c6bcd807b0a70'
+        const api_key = ''
         const url_base = 'https://api.openweathermap.org/data/2.5/'
 
-        // Example: http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=77854068949f3f3b8a9c6bcd807b0a70
+        // Example: http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=
         fetch(`${url_base}weather?q=${input}&units=metric&APPID=${api_key}`)
         .then(res => res.json())
         .then(weatherdata => setfetchedWeatherData(weatherdata))
